@@ -11,15 +11,18 @@
         "lint:type": "npx tsc --noEmit",
         "prettier:fix": "prettier --write \"**/*.{ts,tsx,json,md,scss,html,yml}\"",
         "lint:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
-        "pre:push": "npm run lint:fix && npm run lint:type && npm run prettier:fix",
-        "pre:commit": "npm run lint:type && npm run prettier:fix && lint:editor",
+        "pre:push": "npm run lint:fix && npm run lint:type && npm run prettier:fix && npm run lint:editor",
         "prepare": "husky"
     },
     "lint-staged": {
-        "*": [
-            "npm run pre:commit"
+        "*.{ts,js,tsx,yml,md}": [
+          "prettier --write"
+        ],
+        "*.{ts,tsx}": [
+          "npx eslint --fix",
+          "npx tsc --noEmit"
         ]
-    },
+      },
     "dependencies": {
         "clsx": "^2.1.1",
         "next": "14.2.5",
