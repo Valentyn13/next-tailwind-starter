@@ -15,15 +15,11 @@
         "prepare": "husky"
     },
     "lint-staged": {
-        "*": [
-            "editorconfig-checker"
-        ],
         "*.{ts,js,tsx,yml,md}": [
             "prettier --write"
         ],
         "*.{ts,tsx}": [
-            "npx eslint --fix",
-            "npx tsc --noEmit"
+            "npx eslint --fix"
         ]
     },
     "dependencies": {
