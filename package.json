@@ -15,6 +15,9 @@
         "prepare": "husky"
     },
     "lint-staged": {
+        "*": [
+            "editorconfig-checker"
+        ],
         "*.{ts,js,tsx,yml,md}": [
             "prettier --write"
         ],
